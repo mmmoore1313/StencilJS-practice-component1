@@ -9,6 +9,41 @@
     <script nomodule src="/build/component1.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <my-header></my-header>
+    <div class="content">
+      <button class="open-modal"> Open Modal </button>
+      <my-buttons></my-buttons>
+      <my-component title="Stencil" content="'Don't call me a framework' JS"></my-component>
+      <my-card title="Card Title" content="Card Body"></my-card>
+    </div>
+    <my-footer></my-footer>
   </body>
+  <script>
+    var openModal = document.querySelector('button');
+    var modal = document.querySelector('my-component');
+    openModal.addEventListener('click', function () {
+      modal.openModal();
+    })
+  </script>
+  <style>
+    .open-modal {
+      text-align: center;
+      padding: 10px;
+      background: greenyellow;
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 20px;
+      width: calc(100% - 40px);
+      box-shadow: none;
+      border: none;
+    }
+    .content{
+      margin: auto;
+      height: calc(100vh - 84px);
+      margin-top: 42px;
+      margin-bottom: 42px;
+    }
+  </style>
 </html>
