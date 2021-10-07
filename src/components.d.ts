@@ -10,6 +10,9 @@ export namespace Components {
         "buttonTitle": string;
     }
     interface MyCard {
+        "content": string;
+        "openModal": () => Promise<void>;
+        "title": string;
     }
     interface MyComponent {
         /**
@@ -53,6 +56,8 @@ declare namespace LocalJSX {
         "buttonTitle"?: string;
     }
     interface MyCard {
+        "content"?: string;
+        "title"?: string;
     }
     interface MyComponent {
         /**
