@@ -9,6 +9,8 @@ export namespace Components {
     interface MyButtons {
         "buttonTitle": string;
     }
+    interface MyCard {
+    }
     interface MyComponent {
         /**
           * The middle name
@@ -28,6 +30,12 @@ declare global {
         prototype: HTMLMyButtonsElement;
         new (): HTMLMyButtonsElement;
     };
+    interface HTMLMyCardElement extends Components.MyCard, HTMLStencilElement {
+    }
+    var HTMLMyCardElement: {
+        prototype: HTMLMyCardElement;
+        new (): HTMLMyCardElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -36,12 +44,15 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-buttons": HTMLMyButtonsElement;
+        "my-card": HTMLMyCardElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
     interface MyButtons {
         "buttonTitle"?: string;
+    }
+    interface MyCard {
     }
     interface MyComponent {
         /**
@@ -55,6 +66,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-buttons": MyButtons;
+        "my-card": MyCard;
         "my-component": MyComponent;
     }
 }
@@ -63,6 +75,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-buttons": LocalJSX.MyButtons & JSXBase.HTMLAttributes<HTMLMyButtonsElement>;
+            "my-card": LocalJSX.MyCard & JSXBase.HTMLAttributes<HTMLMyCardElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
