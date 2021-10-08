@@ -25,6 +25,9 @@ export namespace Components {
          */
         "title": string;
     }
+    interface MyFooter {
+        "haederTitle": string;
+    }
 }
 declare global {
     interface HTMLMyButtonsElement extends Components.MyButtons, HTMLStencilElement {
@@ -45,10 +48,17 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLMyFooterElement extends Components.MyFooter, HTMLStencilElement {
+    }
+    var HTMLMyFooterElement: {
+        prototype: HTMLMyFooterElement;
+        new (): HTMLMyFooterElement;
+    };
     interface HTMLElementTagNameMap {
         "my-buttons": HTMLMyButtonsElement;
         "my-card": HTMLMyCardElement;
         "my-component": HTMLMyComponentElement;
+        "my-footer": HTMLMyFooterElement;
     }
 }
 declare namespace LocalJSX {
@@ -69,10 +79,14 @@ declare namespace LocalJSX {
          */
         "title"?: string;
     }
+    interface MyFooter {
+        "haederTitle"?: string;
+    }
     interface IntrinsicElements {
         "my-buttons": MyButtons;
         "my-card": MyCard;
         "my-component": MyComponent;
+        "my-footer": MyFooter;
     }
 }
 export { LocalJSX as JSX };
@@ -82,6 +96,7 @@ declare module "@stencil/core" {
             "my-buttons": LocalJSX.MyButtons & JSXBase.HTMLAttributes<HTMLMyButtonsElement>;
             "my-card": LocalJSX.MyCard & JSXBase.HTMLAttributes<HTMLMyCardElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-footer": LocalJSX.MyFooter & JSXBase.HTMLAttributes<HTMLMyFooterElement>;
         }
     }
 }
