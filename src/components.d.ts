@@ -28,6 +28,9 @@ export namespace Components {
     interface MyFooter {
         "haederTitle": string;
     }
+    interface MyHeader {
+        "haederTitle": string;
+    }
 }
 declare global {
     interface HTMLMyButtonsElement extends Components.MyButtons, HTMLStencilElement {
@@ -54,11 +57,18 @@ declare global {
         prototype: HTMLMyFooterElement;
         new (): HTMLMyFooterElement;
     };
+    interface HTMLMyHeaderElement extends Components.MyHeader, HTMLStencilElement {
+    }
+    var HTMLMyHeaderElement: {
+        prototype: HTMLMyHeaderElement;
+        new (): HTMLMyHeaderElement;
+    };
     interface HTMLElementTagNameMap {
         "my-buttons": HTMLMyButtonsElement;
         "my-card": HTMLMyCardElement;
         "my-component": HTMLMyComponentElement;
         "my-footer": HTMLMyFooterElement;
+        "my-header": HTMLMyHeaderElement;
     }
 }
 declare namespace LocalJSX {
@@ -82,11 +92,15 @@ declare namespace LocalJSX {
     interface MyFooter {
         "haederTitle"?: string;
     }
+    interface MyHeader {
+        "haederTitle"?: string;
+    }
     interface IntrinsicElements {
         "my-buttons": MyButtons;
         "my-card": MyCard;
         "my-component": MyComponent;
         "my-footer": MyFooter;
+        "my-header": MyHeader;
     }
 }
 export { LocalJSX as JSX };
@@ -97,6 +111,7 @@ declare module "@stencil/core" {
             "my-card": LocalJSX.MyCard & JSXBase.HTMLAttributes<HTMLMyCardElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-footer": LocalJSX.MyFooter & JSXBase.HTMLAttributes<HTMLMyFooterElement>;
+            "my-header": LocalJSX.MyHeader & JSXBase.HTMLAttributes<HTMLMyHeaderElement>;
         }
     }
 }
